@@ -23,6 +23,7 @@ This project provides a detailed guide on setting up and running Oracle 19 Enter
 - [**Prerequisites**](#prerequisites)
 - [**Installation Steps**](#installation-steps)
 - [**Connecting to the Database**](#connecting-to-the-database)
+- [**Docker Compose**](#docker-compose)
 
 ---
 ## Prerequisites
@@ -103,3 +104,106 @@ Test the connection first, save and then connect.
 ```sql
 SELECT tname FROM tabs;
 ```
+--- 
+
+You can use the following alternatives to build oracle project.
+⚠️ Donot proceed if you have completed the docker setup from above.
+
+# Docker Compose
+```bash
+docker compose up -d --build
+```
+
+The following will be installed
+- Oracle 19c Enterprise
+- Dbeaver
+
+Wait for 5-10 minutes to build the whole process 
+Go to the following URL to Setup Dbeaver and proceed to continue.
+```bash
+http://localhost:8086
+```
+Start the setup
+
+![image](https://github.com/user-attachments/assets/59f910e6-4f41-4f3b-b4c3-c868cedc6072)
+
+
+Configure the Initial Configuration
+
+![image](https://github.com/user-attachments/assets/fdd965fc-7220-48f5-a55f-2c9d03425ee6)
+
+
+Finish the setup
+
+![image](https://github.com/user-attachments/assets/9c4eb21d-e5c7-4848-a754-5428583eb352)
+
+
+Firstly Login
+
+![image](https://github.com/user-attachments/assets/62b2ba18-2ec0-44f5-95ff-b0f91fd45975)
+
+
+Login with the credential put on wizard
+
+![image](https://github.com/user-attachments/assets/5728e70c-7c86-4386-9cc4-7611102a7038)
+
+
+Create a Oracle Connection
+
+![image](https://github.com/user-attachments/assets/bf1e8e9b-1719-4d37-91a9-8f2eb6fec399)
+
+
+Add a new connection
+
+![image](https://github.com/user-attachments/assets/0eb97a00-35a0-4674-961f-1efc50c94e4d)
+
+
+Select Oracle
+
+![image](https://github.com/user-attachments/assets/27d131a8-812a-4881-a4eb-4f618e747cf0)
+
+
+Fill the following Credentials
+
+![image](https://github.com/user-attachments/assets/ab31d173-5d2c-4d52-9962-da1f05e99dd9)
+
+
+- HOST:
+    ```bash
+    oracle-db
+    ```
+    This refers to the oracle container name. If you have server IP you can put the server IP.
+- PORT:
+    ```bash
+    1521
+    ```
+- USERNAME:
+    ```bash
+    HR
+    ```
+- PASSWORD:
+    ```bash
+    HR_Pa55pA55
+    ```
+- DATABASE:
+    ```bash
+    ORCL
+    ```
+- SERVICE TYPE:
+    ```bash
+    SID
+    ```
+
+Test the Connection should show the following:
+
+![image](https://github.com/user-attachments/assets/70821a69-ac0e-452c-a9fa-fefa3f4f9141)
+
+
+SQL Editor
+
+![image](https://github.com/user-attachments/assets/b8d31fbc-637d-48d6-b526-343310091efc)
+
+
+Query the database
+
+![image](https://github.com/user-attachments/assets/74b748f5-d73f-47a6-bf22-3e4744f6b2b2)
