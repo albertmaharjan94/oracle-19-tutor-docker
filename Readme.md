@@ -138,7 +138,17 @@ Finish the setup
 ![image](https://github.com/user-attachments/assets/9c4eb21d-e5c7-4848-a754-5428583eb352)
 
 
-Create a Oracle Connection, if you donot see the following, refresh the page again.
+Firstly Login
+
+![image](https://github.com/user-attachments/assets/62b2ba18-2ec0-44f5-95ff-b0f91fd45975)
+
+
+Login with the credential put on wizard
+
+![image](https://github.com/user-attachments/assets/5728e70c-7c86-4386-9cc4-7611102a7038)
+
+
+Create a Oracle Connection
 
 ![image](https://github.com/user-attachments/assets/bf1e8e9b-1719-4d37-91a9-8f2eb6fec399)
 
@@ -183,3 +193,17 @@ Fill the following Credentials
     ```bash
     SID
     ```
+
+Test the Connection should show the following:
+
+![image](https://github.com/user-attachments/assets/70821a69-ac0e-452c-a9fa-fefa3f4f9141)
+
+
+SQL Editor
+
+![image](https://github.com/user-attachments/assets/b8d31fbc-637d-48d6-b526-343310091efc)
+
+
+Query the database
+
+![image](https://github.com/user-attachments/assets/74b748f5-d73f-47a6-bf22-3e4744f6b2b2)
