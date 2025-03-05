@@ -17,12 +17,14 @@ This project provides a detailed guide on setting up and running Oracle 19 Enter
 
 - By using this project, you agree to comply with all applicable laws and regulations and to respect the rights of others.
 
+
 ## Contents
 - [**Disclaimer**](#disclaimer)
 - [**Prerequisites**](#prerequisites)
 - [**Installation Steps**](#installation-steps)
 - [**Connecting to the Database**](#connecting-to-the-database)
 
+---
 ## Prerequisites
 - **Operating System:** Linux-based OS, Windows, or macOS (Linux recommended for production).
 - **Docker:** Docker Engine version 19.03 or later.
@@ -31,13 +33,13 @@ This project provides a detailed guide on setting up and running Oracle 19 Enter
 ## Installation Steps
 If you need to have [Docker](https://www.docker.com/products/docker-desktop/) installed in your device.
 
-### Clone the repository[Link Text](#sample-section).
+### Clone the repository
 ```bash
 git clone xyz.com
 cd xyz
 ```
-### Make sure you have the oracle Enterprise zip file from your teacher and place it in the same folder.
-
+### Make sure you have the oracle Enterprise zip file from your `TUTOR` and place it in the same folder.
+Proceed with
 ```bash
 docker build -t oracle19c .
 ```
@@ -64,9 +66,15 @@ Check the status of the database.
 select stauts from v$instance;
 ```
 The status should be `OPEN`
+You can change the HR user password
+
+```sql
+ALTER USER HR ACCOUNT UNLOCK;
+ALTER USER HR IDENTIFIED BY HR_Pa55pA55;
+```
 
 # Connecting to the Database
-If you are using sqlplus client. Use the following credentials:
+If you are using [SQLTool](https://s3-np1.datahub.com.np/workshop/SQLTools_18b42.zip) client. Use the following credentials:
 
 - TAG:
     ```bash
@@ -81,11 +89,6 @@ If you are using sqlplus client. Use the following credentials:
     ```bash
     HR_Pa55pA55
     ```
-- Host:
-    ```bash
-    localhost
-    ```
-    You can also put your network ip/server ip as the Host.
 - TCP Port:
     ```bash
     1521

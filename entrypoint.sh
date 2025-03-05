@@ -58,14 +58,7 @@ echo "CREATING HR SCHEMA"
 export ORACLE_SID=ORCL
 sqlplus sys/password as SYSDBA <<EOF
 @?/demo/schema/human_resources/hr_main.sql;
-
-ALTER USER HR ACCOUNT UNLOCK;
-ALTER USER HR IDENTIFIED BY HR_Pa55pA55;
 EOF
-
-echo "HR schema created."
-
-
 
 # Keep container running
 tail -f /dev/null
