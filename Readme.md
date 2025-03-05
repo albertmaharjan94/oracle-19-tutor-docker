@@ -103,7 +103,7 @@ If you are using [SQLTool](https://s3-np1.datahub.com.np/workshop/SQLTools_18b42
 
 Test the connection first, save and then connect.
 ```sql
-SELECT tname FROM tabs;
+SELECT tname FROM tab;
 ```
 --- 
 
