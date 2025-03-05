@@ -70,5 +70,7 @@ ALTER USER HR IDENTIFIED BY HR_Pa55pA55;
 EOF
 
 echo "Created"
+echo "You are now ready to use the database"
+
 # Keep container running
 tail -f /dev/null
