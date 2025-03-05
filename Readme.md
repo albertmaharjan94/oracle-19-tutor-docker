@@ -56,7 +56,7 @@ Once done, you can access the Oracle server using
 docker exec -it oracle-db bash
 ```
 
-You should be in `[oracle@51bbc34fac35 db_1]$` in default.
+You should be in `[oracle@<some_id> db_1]$` in default.
 
 ```bash
 sqlplus sys/Pa55w0rd as sysdba;
