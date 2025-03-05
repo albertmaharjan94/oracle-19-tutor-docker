@@ -17,20 +17,16 @@ This project provides a detailed guide on setting up and running Oracle 19 Enter
 
 - By using this project, you agree to comply with all applicable laws and regulations and to respect the rights of others.
 
-
 ## Contents
-- **Disclaimer**
-- **Prerequisites**
-- **Installation Steps**
-- **Connecting to the Database**
-- **Useful Docker Commands**
+- [**Disclaimer**](#disclaimer)
+- [**Prerequisites**](#prerequisites)
+- [**Installation Steps**](#installation-steps)
+- [**Connecting to the Database**](#connecting-to-the-database)
 
 ## Prerequisites
 - **Operating System:** Linux-based OS, Windows, or macOS (Linux recommended for production).
 - **Docker:** Docker Engine version 19.03 or later.
 - **Hardware:** Minimum 4GB RAM, 20GB free disk space.
-- **Oracle Account:** Required for accessing Oracle 19c Docker images from the Oracle Container Registry.
-- **Database Knowledge:** Familiarity with Oracle Database basics and Docker commands.
 
 ## Installation Steps
 If you need to have [Docker](https://www.docker.com/products/docker-desktop/) installed in your device.
