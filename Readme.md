@@ -67,7 +67,8 @@ Check the status of the database.
 SELECT status FROM v$instance;
 ```
 The status should be `OPEN`
-You can change the HR user password
+
+If you want to change the password of HR you can follow as:
 
 ```sql
 ALTER USER HR ACCOUNT UNLOCK;
@@ -102,11 +103,12 @@ If you are using [SQLTool](https://s3-np1.datahub.com.np/workshop/SQLTools_18b42
 
 Test the connection first, save and then connect.
 ```sql
-SELECT tname FROM tabs;
+SELECT tname FROM tab;
 ```
 --- 
 
 You can use the following alternatives to build oracle project.
+
 ⚠️ Donot proceed if you have completed the docker setup from above.
 
 # Docker Compose
