@@ -63,7 +63,7 @@ sqlplus sys/Pa55w0rd as sysdba;
 ```
 Check the status of the database.
 ```sql
-select stauts from v$instance;
+SELECT status FROM v$instance;
 ```
 The status should be `OPEN`
 You can change the HR user password
