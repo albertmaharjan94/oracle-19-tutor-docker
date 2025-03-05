@@ -25,7 +25,7 @@ chmod -R 750 /u01/app/oracle/admin/orcl/adump
 
 
 # # Check if Database Exists
-if [ ! -f "$ORADATA/system01.dbf" ]; then
+if [ ! -f "$ORADATA/ORCL/system01.dbf" ]; then
     echo "Creating a new database..."
     dbca -silent -createDatabase \
         -gdbName ORCL \
@@ -40,8 +40,30 @@ if [ ! -f "$ORADATA/system01.dbf" ]; then
         -sysPassword "Pa55w0rd" \
         -systemPassword "Pa55w0rd"
 
+    
+        echo "CREATING HR SCHEMA"
+
+        export ORACLE_SID=ORCL
+        sqlplus sys/Pa55w0rd as SYSDBA <<EOF
+        ALTER USER HR ACCOUNT UNLOCK;
+        ALTER USER HR IDENTIFIED BY HR_Pa55pA55;
+        GRANT DBA TO HR;
+        @?/demo/schema/human_resources/hr_main.sql;
+        REVOKE DBA FROM HR;
+        GRANT CONNECT, RESOURCE TO HR;
+        GRANT SELECT_CATALOG_ROLE TO HR;
+        GRANT EXECUTE ON SYS.DBMS_STATS TO HR;
+        GRANT CREATE TRIGGER, CREATE VIEW, CREATE SEQUENCE TO HR;
+        ALTER USER HR IDENTIFIED BY HR_Pa55pA55;
+EOF
+
+echo "Created"
+
 else
     echo "Database already exists."
+    sqlplus sys/Pa55w0rd as SYSDBA <<EOF
+    STARTUP;
+EOF
 fi
 
 # Start Listener
@@ -52,24 +74,6 @@ lsnrctl start
 echo "Waiting for listener to start..."
 sleep 5
 
-
-echo "CREATING HR SCHEMA"
-
-export ORACLE_SID=ORCL
-sqlplus sys/Pa55w0rd as SYSDBA <<EOF
-ALTER USER HR ACCOUNT UNLOCK;
-ALTER USER HR IDENTIFIED BY HR_Pa55pA55;
-GRANT DBA TO HR;
-@?/demo/schema/human_resources/hr_main.sql;
-REVOKE DBA FROM HR;
-GRANT CONNECT, RESOURCE TO HR;
-GRANT SELECT_CATALOG_ROLE TO HR;
-GRANT EXECUTE ON SYS.DBMS_STATS TO HR;
-GRANT CREATE TRIGGER, CREATE VIEW, CREATE SEQUENCE TO HR;
-ALTER USER HR IDENTIFIED BY HR_Pa55pA55;
-EOF
-
-echo "Created"
 echo "You are now ready to use the database"
 
 # Keep container running

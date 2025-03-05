@@ -1,0 +1,44 @@
+services:
+  oracle-db:
+    container_name: oracle19c
+    build: .
+    shm_size: "4g"
+    environment:
+      ORACLE_SID: ORCL
+      ORACLE_BASE: /u01/app/oracle
+      ORACLE_HOME: /u01/app/oracle/product/19c/db_1
+      ORACLE_INVENTORY: /u01/app/oraInventory
+      ORADATA: /u01/app/oracle/oradata
+      CV_ASSUME_DISTID: OL7
+    volumes:
+      - oracle_data:/u01/app/oracle/oradata
+      - oracle_config:/u01/app/oracle/product/19c/db_1/network/admin
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    restart: unless-stopped
+    networks:
+      - oracle-network
+  dbeaver:
+    image: dbeaver/cloudbeaver
+    container_name: dbeaver
+    depends_on:
+      - oracle-db
+    ports:
+      - "8086:8978"
+    volumes:
+      - dbeaver_data:/opt/cloudbeaver/data
+    networks:
+      - oracle-network
+
+volumes:
+  oracle_data:
+    driver: local
+  oracle_config:
+    driver: local
+  dbeaver_data:
+    driver: local
+
+networks:
+  oracle-network:
+    driver: bridge
