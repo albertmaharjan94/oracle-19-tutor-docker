@@ -56,11 +56,12 @@ sleep 5
 echo "CREATING HR SCHEMA"
 
 export ORACLE_SID=ORCL
-sqlplus sys/password as SYSDBA <<EOF
+sqlplus sys/Pa55w0rd as SYSDBA <<EOF
 @?/demo/schema/human_resources/hr_main.sql;
 EOF
 
-sqlplus sys/password as SYSDBA <<EOF
+export ORACLE_SID=ORCL
+sqlplus sys/Pa55w0rd as SYSDBA <<EOF
 ALTER USER HR ACCOUNT UNLOCK;
 ALTER USER HR IDENTIFIED BY HR_Pa55pA55;
 EOF
