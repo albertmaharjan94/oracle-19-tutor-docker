@@ -25,7 +25,7 @@ chmod -R 750 /u01/app/oracle/admin/orcl/adump
 
 
 # # Check if Database Exists
-if [ ! -f "/u01/app/oracle/product/19c/db_1/dbs/initORCL.ora" ]; then
+if [ ! -f "/u01/app/oracle/product/19c/db_1/dbs/spfileORCL.ora" ]; then
     echo "Creating a new database..."
     rm -rf /u01/app/oracle/oradata/ORCL/*
 
@@ -47,8 +47,8 @@ if [ ! -f "/u01/app/oracle/product/19c/db_1/dbs/initORCL.ora" ]; then
 
         export ORACLE_SID=ORCL
         sqlplus sys/Pa55w0rd as SYSDBA <<EOF
+        CREATE USER HR IDENTIFIED BY HR_Pa55pA55;
         ALTER USER HR ACCOUNT UNLOCK;
-        ALTER USER HR IDENTIFIED BY HR_Pa55pA55;
         GRANT DBA TO HR;
         @?/demo/schema/human_resources/hr_main.sql;
         REVOKE DBA FROM HR;
