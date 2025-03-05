@@ -23,6 +23,7 @@ This project provides a detailed guide on setting up and running Oracle 19 Enter
 - [**Prerequisites**](#prerequisites)
 - [**Installation Steps**](#installation-steps)
 - [**Connecting to the Database**](#connecting-to-the-database)
+- [**Docker Compose**](#docker-compose)
 
 ---
 ## Prerequisites
@@ -103,6 +104,7 @@ Test the connection first, save and then connect.
 ```sql
 SELECT tname FROM tabs;
 ```
+--- 
 
 You can use the following alternatives to build oracle project.
 ⚠️ Donot proceed if you have completed the docker setup from above.
@@ -122,22 +124,37 @@ Go to the following URL to Setup Dbeaver and proceed to continue.
 http://localhost:8086
 ```
 Start the setup
+
 ![image](https://github.com/user-attachments/assets/59f910e6-4f41-4f3b-b4c3-c868cedc6072)
+
+
 Configure the Initial Configuration
+
 ![image](https://github.com/user-attachments/assets/fdd965fc-7220-48f5-a55f-2c9d03425ee6)
+
+
 Finish the setup
+
 ![image](https://github.com/user-attachments/assets/9c4eb21d-e5c7-4848-a754-5428583eb352)
 
+
 Create a Oracle Connection, if you donot see the following, refresh the page again.
+
 ![image](https://github.com/user-attachments/assets/bf1e8e9b-1719-4d37-91a9-8f2eb6fec399)
 
+
 Add a new connection
+
 ![image](https://github.com/user-attachments/assets/0eb97a00-35a0-4674-961f-1efc50c94e4d)
 
+
 Select Oracle
+
 ![image](https://github.com/user-attachments/assets/27d131a8-812a-4881-a4eb-4f618e747cf0)
 
+
 Fill the following Credentials
+
 ![image](https://github.com/user-attachments/assets/ab31d173-5d2c-4d52-9962-da1f05e99dd9)
 
 
