@@ -50,8 +50,13 @@ RUN /u01/app/oraInventory/orainstRoot.sh && \
 
 
 # Copy startup script
+# COPY entrypoint.sh /u01/app/oracle/entrypoint.sh
+# RUN chmod +x /u01/app/oracle/entrypoint.sh
+
 COPY entrypoint.sh /u01/app/oracle/entrypoint.sh
-RUN chmod +x /u01/app/oracle/entrypoint.sh
+RUN chmod 755 /u01/app/oracle/entrypoint.sh
+
+RUN chown oracle:oinstall /u01/app/oracle/entrypoint.sh
 
 COPY listener.ora /u01/app/oracle/product/19c/db_1/network/admin/
 COPY sqlnet.ora /u01/app/oracle/product/19c/db_1/network/admin/
