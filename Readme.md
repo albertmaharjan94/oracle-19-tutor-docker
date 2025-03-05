@@ -1,0 +1,106 @@
+# Oracle 19c Enterprise Edition - Docker Setup
+
+## Introduction
+This project provides a detailed guide on setting up and running Oracle 19 Enterprise Edition using Docker. It is intended for educational purposes to help users understand how to leverage Docker for Oracle database deployment.
+
+
+## Disclaimer
+⚠️ Important Notes:
+
+- This project is intended for educational purposes only. It should not be used for any commercial activities or purposes that violate Oracle's licensing agreements.
+
+- Do not misuse the information or resources provided in this project.
+
+- Do not share any proprietary information obtained through this project with unauthorized parties.
+
+- Respect the intellectual property rights of Oracle and other third parties.
+
+- By using this project, you agree to comply with all applicable laws and regulations and to respect the rights of others.
+
+
+## Contents
+- **Disclaimer**
+- **Prerequisites**
+- **Installation Steps**
+- **Connecting to the Database**
+- **Useful Docker Commands**
+
+## Prerequisites
+- **Operating System:** Linux-based OS, Windows, or macOS (Linux recommended for production).
+- **Docker:** Docker Engine version 19.03 or later.
+- **Hardware:** Minimum 4GB RAM, 20GB free disk space.
+- **Oracle Account:** Required for accessing Oracle 19c Docker images from the Oracle Container Registry.
+- **Database Knowledge:** Familiarity with Oracle Database basics and Docker commands.
+
+## Installation Steps
+If you need to have [Docker](https://www.docker.com/products/docker-desktop/) installed in your device.
+
+### Clone the repository[Link Text](#sample-section).
+```bash
+git clone xyz.com
+cd xyz
+```
+### Make sure you have the oracle Enterprise zip file from your teacher and place it in the same folder.
+
+```bash
+docker build -t oracle19c .
+```
+
+The initial docker build can take 5-10 minutues to build the oracle linux from scratch.
+The the build is successful, run the following.
+```bash
+docker run  --name oracle-db --shm-size=4g -p 1521:1521 oracle19c 
+```
+This step will create a oracle SID called ORCL which can take 3-4 minutes. Wait for it to complete.
+
+Once done, you can access the Oracle server using
+```bash
+docker exec -it oracle-db bash
+```
+
+You should be in `[oracle@51bbc34fac35 db_1]$` in default.
+
+```bash
+sqlplus sys/Pa55w0rd as sysdba;
+```
+Check the status of the database.
+```sql
+select stauts from v$instance;
+```
+The status should be `OPEN`
+
+# Connecting to the Database
+If you are using sqlplus client. Use the following credentials:
+
+- TAG:
+    ```bash
+    HR
+    ```
+
+- User:
+    ```bash
+    HR
+    ```
+- Password:
+    ```bash
+    HR_Pa55pA55
+    ```
+- Host:
+    ```bash
+    localhost
+    ```
+    You can also put your network ip/server ip as the Host.
+- TCP Port:
+    ```bash
+    1521
+    ```
+
+- SID:
+    ```bash
+    ORCL
+    ```
+
+Test the connection first, save and then connect.
+```sql
+SELECT tname FROM tabs;
+```
