@@ -25,8 +25,10 @@ chmod -R 750 /u01/app/oracle/admin/orcl/adump
 
 
 # # Check if Database Exists
-if [ ! -f "$ORADATA/ORCL/system01.dbf" ]; then
+if [ ! -f "/u01/app/oracle/product/19c/db_1/dbs/initORCL.ora" ]; then
     echo "Creating a new database..."
+    rm -rf /u01/app/oracle/oradata/ORCL/*
+
     dbca -silent -createDatabase \
         -gdbName ORCL \
         -templateName General_Purpose.dbc \
@@ -41,7 +43,7 @@ if [ ! -f "$ORADATA/ORCL/system01.dbf" ]; then
         -systemPassword "Pa55w0rd"
 
     
-        echo "CREATING HR SCHEMA"
+        # echo "CREATING HR SCHEMA"
 
         export ORACLE_SID=ORCL
         sqlplus sys/Pa55w0rd as SYSDBA <<EOF
