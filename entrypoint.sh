@@ -60,5 +60,10 @@ sqlplus sys/password as SYSDBA <<EOF
 @?/demo/schema/human_resources/hr_main.sql;
 EOF
 
+sqlplus sys/password as SYSDBA <<EOF
+ALTER USER HR ACCOUNT UNLOCK;
+ALTER USER HR IDENTIFIED BY HR_Pa55pA55;
+EOF
+
 # Keep container running
 tail -f /dev/null

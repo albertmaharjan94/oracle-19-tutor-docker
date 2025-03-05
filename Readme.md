@@ -35,8 +35,8 @@ If you need to have [Docker](https://www.docker.com/products/docker-desktop/) in
 
 ### Clone the repository
 ```bash
-git clone xyz.com
-cd xyz
+git clone https://github.com/albertmaharjan94/oracle-19-tutor-docker
+cd oracle-19-tutor-docker
 ```
 ### Make sure you have the oracle Enterprise zip file from your `TUTOR` and place it in the same folder.
 Proceed with
